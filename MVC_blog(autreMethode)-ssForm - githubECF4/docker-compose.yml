@@ -1,15 +1,11 @@
 version: '3.8'
-
 services:
-  portfolio-app:
+  app:
+    # Construction de l'image à partir du Dockerfile local
     build: .
-    container_name: portfolio_container
+    # Mapping du port 8080 de l'ordinateur vers le port 80 du conteneur
     ports:
-      - "8080:80" 
+      - "8080:80"
+    # Montage de volume pour voir les modifs de code en temps réel
     volumes:
-      - .:/var/www/html 
-    networks:
-      - portfolio-network
-networks:
-  portfolio-network:
-    driver: bridge
+      - .:/var/www/html
